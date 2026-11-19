@@ -1,0 +1,42 @@
+{
+  "name": "arancelmx-mcp",
+  "version": "0.1.0",
+  "description": "Consulta una fracción de la TIGIE (IGI, IVA, IEPS, regulaciones y NICO) desde tu asistente, con la fecha de la base oficial.",
+  "author": "ArancelMX",
+  "license": "MIT",
+  "homepage": "https://arancelmx.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acovot/arancelmx-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/acovot/arancelmx-mcp/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "tigie",
+    "ligie",
+    "arancel",
+    "fraccion-arancelaria",
+    "mexico",
+    "aduana",
+    "nico"
+  ],
+  "type": "module",
+  "bin": {
+    "arancelmx-mcp": "src/servidor.mjs"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "start": "node src/servidor.mjs"
+  }
+}
