@@ -1,0 +1,50 @@
+{
+  "manifest_version": "0.3",
+  "name": "arancelmx-mcp",
+  "display_name": "ArancelMX",
+  "version": "0.1.0",
+  "description": "Consulta una fracción de la TIGIE (IGI, IVA, IEPS, regulaciones y NICO) desde tu asistente, con la fecha de la base oficial.",
+  "author": {
+    "name": "ArancelMX",
+    "url": "https://arancelmx.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acovot/arancelmx-mcp.git"
+  },
+  "homepage": "https://arancelmx.com",
+  "license": "MIT",
+  "keywords": [
+    "tigie",
+    "arancel",
+    "mexico",
+    "aduana",
+    "nico"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "src/servidor.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/servidor.mjs"
+      ]
+    }
+  },
+  "tools": [
+    {
+      "name": "consultar_fraccion",
+      "description": "Consulta una fracción arancelaria de México (TIGIE/LIGIE): IGI, IVA, IEPS, regulaciones, NICO y cambio 2026 documentado, con la fecha de la base y el enlace a su ficha. Una fracción por llamada. No clasifica ni calcula impuestos a pagar."
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20"
+    }
+  }
+}

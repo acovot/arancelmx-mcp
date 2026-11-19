@@ -121,7 +121,7 @@ test("la URL de la ruta se puede apuntar a una vista previa, solo por HTTPS", ()
 test("nombre, autor, metadatos y textos nombran solo arancelmx: ningún otro sitio ni la casa", async () => {
   const pkg = JSON.parse(await readFile(new URL("../package.json", import.meta.url), "utf8"));
   // La única excepción: la dirección pública del propio repositorio, necesaria para instalarlo.
-  const sinRepo = (t) => t.replaceAll("github.com/acovot/arancelmx-mcp", "").replaceAll("github:acovot/arancelmx-mcp", "");
+  const sinRepo = (t) => t.replaceAll("github.com/acovot/arancelmx-mcp", "").replaceAll("github:acovot/arancelmx-mcp", "").replaceAll("io.github.acovot/arancelmx-mcp", "");
   const revisar = (texto, donde) => {
     assert.deepEqual(palabrasVetadas(sinRepo(texto), HUELLAS_CASA), [], donde);
     assert.deepEqual(palabrasVetadas(texto, HUELLAS_OTROS_SITIOS), [], donde);
@@ -130,7 +130,7 @@ test("nombre, autor, metadatos y textos nombran solo arancelmx: ningún otro sit
   };
   assert.equal(pkg.name, "arancelmx-mcp");
   revisar(JSON.stringify(pkg), "package.json");
-  for (const f of ["../src/servidor.mjs", "../src/registro.mjs", "../src/textos.mjs", "../README.md", "../LICENSE", "./servidor.test.mjs", "./stdio.test.mjs", "./textos.test.mjs"]) {
+  for (const f of ["../src/servidor.mjs", "../src/registro.mjs", "../src/textos.mjs", "../README.md", "../LICENSE", "../manifest.json", "../server.json", "./publicacion.test.mjs", "./servidor.test.mjs", "./stdio.test.mjs", "./textos.test.mjs"]) {
     revisar(await readFile(new URL(f, import.meta.url), "utf8"), f);
   }
   for (const f of await readdir(new URL("../src/herramientas/", import.meta.url))) {
